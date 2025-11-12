@@ -62,8 +62,7 @@ export default function PodcastConverter() {
     };
   }, []);
 
-  const API_BASE_URL = process.env.VITE_APP_API_URL || 'http://localhost:5000/api';
-
+  const API_BASE_URL = '/api';
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.type === 'application/pdf') {
@@ -122,9 +121,9 @@ export default function PodcastConverter() {
     try {
       // API Call
       const response = await fetch(`${API_BASE_URL}/convert`, {
-    method: 'POST',
-    body: formData
-    });
+        method: 'POST',
+        body: formData
+        });
       
       // Stop the simulation interval once response is received
       clearInterval(progressIntervalRef.current);
