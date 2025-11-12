@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "https://http://notecast-backend-notecast.up.railway.app//api/$1"
+    }
+  ]
+}
