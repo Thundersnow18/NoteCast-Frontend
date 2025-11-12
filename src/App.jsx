@@ -62,7 +62,7 @@ export default function PodcastConverter() {
     };
   }, []);
 
-  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+  const API_BASE_URL = process.env.VITE_APP_API_URL || 'http://localhost:5000/api';
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
