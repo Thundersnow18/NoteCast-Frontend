@@ -62,6 +62,8 @@ export default function PodcastConverter() {
     };
   }, []);
 
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
     if (selectedFile && selectedFile.type === 'application/pdf') {
@@ -119,10 +121,10 @@ export default function PodcastConverter() {
     
     try {
       // API Call
-      const response = await fetch('http://localhost:5000/api/convert', {
-        method: 'POST',
-        body: formData
-      });
+      const response = await fetch(`${API_BASE_URL}/convert`, {
+    method: 'POST',
+    body: formData
+    });
       
       // Stop the simulation interval once response is received
       clearInterval(progressIntervalRef.current);
@@ -141,7 +143,7 @@ export default function PodcastConverter() {
           if (prev >= 100) {
             clearInterval(finalIntervalRef.current);
             setStatus('complete');
-            setPodcastUrl(`http://localhost:5000/api/download/${data.filename}`);
+            setPodcastUrl(`${API_BASE_URL}/download/${data.filename}`);
             setTranscript(data.transcript || []);
             return 100;
           }
