@@ -1,8 +1,0 @@
-{
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "https://notecast-backend-notecast.up.railway.app/api/convert"
-    }
-  ]
-}
